@@ -32,6 +32,12 @@
                                    AfficherTemps($('#lstRayons').val());
                                  // test();
                                 }) ;
+                                
+                         $('#idRayons').change(
+                                function(){
+                                   AfficherEmployesSel($('#lstRayons').val());
+                                 
+                                }) ;
                    
             }
             );
@@ -41,16 +47,17 @@
     <body>
         <div class="container">
             
-            <h3>Listes des secteurs</h3>
-        <select class="form-control" id="lstSecteurs">
-           <?php 
-              foreach ($lesSecteurs as $lesSecs){
-               echo"<option value='".$lesSecs->numS."'>".$lesSecs->nomS."</option>";
-             }
-       
-           ?>   
-        </select>
-            <h3>Listes des rayons</h3>
+        <h3>Listes des secteurs</h3>
+            <select class="form-control" id="lstSecteurs">
+                <?php 
+                   foreach ($lesSecteurs as $lesSecs){
+                    echo"<option value='".$lesSecs->numS."'>".$lesSecs->nomS."</option>";
+                  }
+                   ?>   
+            </select>
+        
+        
+        <h3>Listes des rayons</h3>
             <div id="idRayons">
                     <select class="form-control" id="lstRayons">
                          <?php 
@@ -61,7 +68,8 @@
                     </select>
             </div>
             
-            <h3>Listes des Employe</h3>
+        
+       <h3>Listes des Employe</h3>
             <div id="idEmployes" style="width: 450px; float: left; margin-right: 50px;">
                 <table class="table">
                             <tr>
@@ -69,35 +77,45 @@
                                 <th>Date </th>
                                 <th>Temps</th>
                             </tr>
+                                <?php
+                                    foreach ($lesEmployes as $employes){
 
-                            <?php
-                            foreach ($lesEmployes as $employes){
-
-                                echo "<tr><td>".$employes->prenomE."</td><td>".$employes->date."</td><td>".$employes->temps."</td></tr>";
-
-                            //     echo $employes->prenomE." ";
-                            //     echo $employes->date." ";
-                            //     echo  $employes->temps." ";
-                            //     echo"<br>";
-                            }
-                            ?>
-
+                                        echo "<tr><td>".$employes->prenomE."</td><td>".$employes->date."</td><td>".$employes->temps."</td></tr>";
+                                    //     echo $employes->prenomE." ";
+                                    //     echo $employes->date." ";
+                                    //     echo  $employes->temps." ";
+                                    //     echo"<br>";
+                                    }
+                                ?>
                     </table>
-                
             </div>
             
-            <h3>Temps total</h3>
-            <div id="tempsTotal"></div>
+       
+       <h3>Temps total</h3>
+            <div id="tempsTotal">
+
+                <?php
+                    $totals=0;
+                    foreach ($lesTempsTotal as $total){
+                        $totals+=$total->temps;
+                    }
+                    echo $totals;
+                ?>
+            </div>
+       
+       
+            <br>
             
-            <h3>Ajouter un nouveau temps</h3>
-            <?php form_open('Ctrl_Acceuil/form_data');?>
+            
+            
+       <h3>Ajouter un nouveau temps</h3>
+            <?php form_open('Ctrl_Acceuil/form_data');
+            ?>
             <div id="ajoutTemps">
-                <input name="prenomE" class="form-control"  type="text" placeholder="Prenom"  value="" > 
-                <input name="date" class="form-control"  type="date" placeholder="Date" value="" > 
-                <input name="temps" class="form-control"  type="text" placeholder="Temps" value="" > 
-                <input id="btnValid" class="btn btn-info" type="submit" name="btnValider" value="Valider">
+                
+                          
             </div>
-            <?php echo form_close(); ?>
+                <?php echo form_close(); ?>
         </div>
     </body>
 </html>

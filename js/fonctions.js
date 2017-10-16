@@ -65,3 +65,26 @@ function AfficherTemps(numR){
             }        
     );
 }
+
+
+function AfficherEmployesSel(numR){
+    //alert("test");
+    $.ajax
+    (
+      {
+         type:'get',
+         url:"index.php/Ctrl_Accueil/AfficherEmployesSel",
+         data:"numR="+numR,
+        success:function(data)
+                {
+                    $('#ajoutTemps').empty();
+                    $('#ajoutTemps').append(data);
+                },
+                error:function()
+                {
+                   alert("Impossiblie de recuperer");
+                }
+  
+            }        
+    );
+}

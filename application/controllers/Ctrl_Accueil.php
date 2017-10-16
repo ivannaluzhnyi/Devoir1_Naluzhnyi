@@ -11,6 +11,9 @@ class Ctrl_Accueil extends CI_Controller{
         $data['lesSecteurs']=$this->Model_Accueil->getAllSecteurs();
         $data["lesRayons"] = $this->Model_Accueil->getAllRayons($data['lesSecteurs'][0]->numS);
         $data["lesEmployes"] = $this->Model_Accueil->getAllEmploye($data["lesRayons"][0]->numR);
+        $data["lesTempsTotal"] = $this->Model_Accueil->getAllTempsTotal($data["lesRayons"][0]->numR);
+       // $data["lesEmployesSaisi"] = $this->Model_Accueil->getAllEmploye($numR);
+       // $data["lesEmployesSaisi"] = $this->AfficherEmployes();
         $this->load->view('v_acceuil',$data);
     }
     
@@ -33,5 +36,11 @@ class Ctrl_Accueil extends CI_Controller{
          $numR =$_GET['numR'];
          $data["lesTempsTotal"] = $this->Model_Accueil->getAllTempsTotal($numR);
          $this->load->view('v_temps',$data);
+     }
+     
+      public function AfficherEmployesSel(){
+           $numR =$_GET['numR']; 
+           $data["lesEmployesSel"] = $this->Model_Accueil->getAllEmploye($numR);
+           $this->load->view('v_employesSel',$data);
      }
 }
