@@ -68,7 +68,7 @@
                     </select>
             </div>
             
-        
+        <div class="row">
        <h3>Listes des Employe</h3>
             <div id="idEmployes" style="width: 450px; float: left; margin-right: 50px;">
                 <table class="table">
@@ -106,16 +106,17 @@
        
             <br>
             
-            
-            
-       <h3>Ajouter un nouveau temps</h3>
-            <?php form_open('Ctrl_Acceuil/form_data');
-            ?>
-            <div id="ajoutTemps">
-                
-                          
+      </div>     
+            <div class="">
+                    <h3>Ajouter un nouveau temps</h3>
+                         <?php form_open('Ctrl_Acceuil/form_data');
+                         ?>
+                         <div id="ajoutTemps">
+
+
+                         </div>
+                             <?php echo form_close(); ?>
             </div>
-                <?php echo form_close(); ?>
-        </div>
+   
     </body>
 </html>

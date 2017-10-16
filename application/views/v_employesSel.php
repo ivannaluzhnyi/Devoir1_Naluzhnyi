@@ -1,4 +1,4 @@
-<select id="selEmp">
+<select class="form-control" id="selEmp">
     <?php 
     foreach ($lesEmployesSel as $sel){
         ?>
