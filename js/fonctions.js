@@ -44,6 +44,7 @@ function test(){
     alert("test");
 }
 
+//Afficher nombre total <-
 function AfficherTemps(numR){
     $.ajax
     (

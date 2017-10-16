@@ -10,12 +10,14 @@ class Ctrl_Accueil extends CI_Controller{
     public function index(){
         $data['lesSecteurs']=$this->Model_Accueil->getAllSecteurs();
         $data["lesRayons"] = $this->Model_Accueil->getAllRayons($data['lesSecteurs'][0]->numS);
+        $data["lesEmployes"] = $this->Model_Accueil->getAllEmploye($data["lesRayons"][0]->numR);
         $this->load->view('v_acceuil',$data);
     }
     
     public function afficherRayons(){
            $numSecteur =$_GET['numSecteur']; 
            $data["lesRayons"] = $this->Model_Accueil->getAllRayons($numSecteur);
+           
            $this->load->view('v_rayons',$data);
      }
     
