@@ -68,46 +68,46 @@
                     </select>
             </div>
             
-        <div class="row">
-       <h3>Listes des Employe</h3>
-            <div id="idEmployes" style="width: 450px; float: left; margin-right: 50px;">
-                <table class="table">
-                            <tr>
-                                <th>Prenom Employe</th>
-                                <th>Date </th>
-                                <th>Temps</th>
-                            </tr>
-                                <?php
-                                    foreach ($lesEmployes as $employes){
+    <div class="row">
+                <h3>Listes des Employe</h3>
+                     <div id="idEmployes" style="width: 450px; float: left; margin-right: 50px;">
+                         <table class="table">
+                                     <tr>
+                                         <th>Prenom Employe</th>
+                                         <th>Date </th>
+                                         <th>Temps</th>
+                                     </tr>
+                                         <?php
+                                             foreach ($lesEmployes as $employes){
 
-                                        echo "<tr><td>".$employes->prenomE."</td><td>".$employes->date."</td><td>".$employes->temps."</td></tr>";
-                                    //     echo $employes->prenomE." ";
-                                    //     echo $employes->date." ";
-                                    //     echo  $employes->temps." ";
-                                    //     echo"<br>";
-                                    }
-                                ?>
-                    </table>
-            </div>
-            
-       
-       <h3>Temps total</h3>
-            <div id="tempsTotal">
+                                                 echo "<tr><td>".$employes->prenomE."</td><td>".$employes->date."</td><td>".$employes->temps."</td></tr>";
+                                             //     echo $employes->prenomE." ";
+                                             //     echo $employes->date." ";
+                                             //     echo  $employes->temps." ";
+                                             //     echo"<br>";
+                                             }
+                                         ?>
+                             </table>
+                     </div>
 
-                <?php
-                    $totals=0;
-                    foreach ($lesTempsTotal as $total){
-                        $totals+=$total->temps;
-                    }
-                    echo $totals;
-                ?>
-            </div>
-       
-       
-            <br>
-            
-      </div>     
-            <div class="">
+
+                <h3>Temps total</h3>
+                     <div id="tempsTotal">
+
+                         <?php
+                             $totals=0;
+                             foreach ($lesTempsTotal as $total){
+                                 $totals+=$total->temps;
+                             }
+                             echo $totals;
+                         ?>
+                     </div>
+
+
+                     <br>
+
+   </div>     
+           
                     <h3>Ajouter un nouveau temps</h3>
                          <?php form_open('Ctrl_Acceuil/form_data');
                          ?>
@@ -116,7 +116,6 @@
 
                          </div>
                              <?php echo form_close(); ?>
-            </div>
-   
+          
     </body>
 </html>

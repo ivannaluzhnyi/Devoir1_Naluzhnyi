@@ -43,4 +43,8 @@ class Ctrl_Accueil extends CI_Controller{
            $data["lesEmployesSel"] = $this->Model_Accueil->getAllEmploye($numR);
            $this->load->view('v_employesSel',$data);
      }
+     
+//     public function AfficherInp(){
+//         $data['lesInfoEmploye'] = $this->Model_Accueil->getAllInfoEmloye($id);
+//     }
 }
